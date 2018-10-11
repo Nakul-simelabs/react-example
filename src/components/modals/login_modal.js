@@ -15,7 +15,6 @@ class LoginModal extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {visible: props.data};
     }
 
     // showModal = () => {
@@ -50,12 +49,13 @@ class LoginModal extends Component {
     }
 
     render() {
+        console.log("tag3",this.props.data);
         const {getFieldDecorator, getFieldsError, getFieldError, isFieldTouched} = this.props.form;
         const userNameError = isFieldTouched('userName') && getFieldError('userName');
         const passwordError = isFieldTouched('password') && getFieldError('password');
         return (<Modal
             title="Basic Modal"
-            visible={this.state.visible}
+            visible={this.props.data}
             onCancel={this.handleCancel}
             footer={[
                 <Button key="back" onClick={this.handleCancel}>Return</Button>,
